@@ -15,17 +15,12 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class RoomBooking {
 
-	public static String roomBiiking(String date,String stime,String etime,String bookby,String participents)throws IOException
+	public String roomBooking(String date,String stime,String etime,String bookby,String participents)throws IOException
 	{
 		int capacity= 0,cap= 0;
-		//int capacityarray[] ={6,10,15};
 		String result="";
 		String roomname="";
 		HSSFWorkbook wb=null;
@@ -36,9 +31,9 @@ public class RoomBooking {
 		//InputStream stream = RoomBooking.class.getResourceAsStream("ConferenceRoomBooking.xls");
 		try
 		{
-			File excel = new File("D:\\ConferenceRoomBooking.xls");
-			stream = new FileInputStream(excel);
-			//stream = ConferenceRoomBooking.class.getResourceAsStream("D:\\ConferenceRoomBooking.xls");
+			/*File excel = new File("D:\\ConferenceRoomBooking.xls");
+			stream = new FileInputStream(excel);*/
+			stream =RoomBooking.class.getResourceAsStream("/ConferenceRoomBooking.xls");
 			wb = new HSSFWorkbook(stream);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -98,9 +93,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 	InputStream stream =null;
 	
 	try{
-		File excel = new File("D:\\ConferenceRoomBooking.xls");
-		fis = new FileInputStream(excel);
-		//stream = ConferenceRoomBooking.class.getResourceAsStream("D:\\ConferenceRoomBooking.xls");
+		stream = RoomBooking.class.getResourceAsStream("/ConferenceRoomBooking.xls");
 		wb = new HSSFWorkbook(fis);
 		System.out.println("File Fetched");
 	}catch(Exception e)
@@ -170,9 +163,9 @@ public static String roomBookingProcess(String roomname,String date,String stime
 				row1.createCell(2).setCellValue(etime);
 				row1.createCell(3).setCellValue(bookby);
 				row1.createCell(7).setCellValue(participents);
-				/*ClassLoader classLoader = ConferenceRoomBooking.class.getClassLoader();
-                File excel =  new File(classLoader.getResource("D:\\ConferenceRoomBooking.xls").getFile());*/
-				File excel = new File("D:\\ConferenceRoomBooking.xls");
+				ClassLoader classLoader = RoomBooking.class.getClassLoader();
+                File excel =  new File(classLoader.getResource("/ConferenceRoomBooking.xls").getFile());
+				//File excel = new File("D:\\ConferenceRoomBooking.xls");
 				FileOutputStream fos = new FileOutputStream(excel);
 				wb.write(fos);
 				//wb.close();
