@@ -94,7 +94,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 	
 	try{
 		stream = RoomBooking.class.getResourceAsStream("/ConferenceRoomBooking.xls");
-		wb = new HSSFWorkbook(fis);
+		wb = new HSSFWorkbook(stream);
 		System.out.println("File Fetched");
 	}catch(Exception e)
 	{
