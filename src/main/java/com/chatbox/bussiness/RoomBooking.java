@@ -161,7 +161,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 				row1.createCell(1).setCellValue(stime);
 				row1.createCell(2).setCellValue(etime);
 				row1.createCell(3).setCellValue(bookby);
-				row1.createCell(7).setCellValue(participents);
+				row1.createCell(4).setCellValue(participents);
 				ClassLoader classLoader = RoomBooking.class.getClassLoader();
                 File excel =  new File(classLoader.getResource("/ConferenceRoomBooking.xls").getFile());
 				//File excel = new File("D:\\ConferenceRoomBooking.xls");
