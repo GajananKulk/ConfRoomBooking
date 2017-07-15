@@ -149,7 +149,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 			if(dt.equals(date))
 			{
 				if((sti<=usti && eti>=usti) || (sti<=ueti && sti>=ueti))
-					return result="Sorry !No room is not available between "+cellToString(row.getCell(roomHeaderIndex))+" and "+cellToString(row.getCell(capHeaderIndex))+" time";
+					return result="Sorry !No room is available between "+cellToString(row.getCell(roomHeaderIndex))+" to "+cellToString(row.getCell(capHeaderIndex));
 				
 			}else if(!(i<=rowNum))
 			{
