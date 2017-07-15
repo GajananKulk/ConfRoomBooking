@@ -73,9 +73,9 @@ public class RoomBooking {
 				stream.close();
 				result=roomBookingProcess(roomname, date, stime, etime, bookby,participents);
                  break;
-			}else if(i >rowNum)
-			{
-			    return "Sorry! Currently room is not available.";
+			}else if(i >= rowNum)
+			{ 
+			    return "Sorry! Currently room is not available for "+cap+" people. please contact to admin ";
 			}
 		}
 		return result;
