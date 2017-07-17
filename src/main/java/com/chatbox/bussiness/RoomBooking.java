@@ -153,7 +153,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 				}else if(!(i<=rowNum))
 				{
 				
-					fis.close();
+					//fis.close();
 					//Store data
 					System.out.println(" getLastRowNum "+ws.getLastRowNum());
 					HSSFRow row1 = ws.createRow((short)  ws.getLastRowNum()+1);
