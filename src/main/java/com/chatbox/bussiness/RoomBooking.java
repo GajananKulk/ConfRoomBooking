@@ -148,9 +148,30 @@ public static String roomBookingProcess(String roomname,String date,String stime
 			System.out.println("Start Time="+sti+" End Time="+eti+" User Start time="+usti+" User end Time="+ueti+" date="+dt.equals(date));
 			if(dt.equals(date))
 			{
-				if((sti<=usti && eti>=usti) || (sti<=ueti && sti>=ueti))
+				if((sti<=usti && eti>=usti) || (sti<=ueti && sti>=ueti)){
 					return result="Sorry !No room is available between "+cellToString(row.getCell(roomHeaderIndex))+" to "+cellToString(row.getCell(capHeaderIndex));
+				}else if(!(i<=rowNum))
+				{
 				
+					fis.close();
+					//Store data
+					System.out.println(" getLastRowNum "+ws.getLastRowNum());
+					HSSFRow row1 = ws.createRow((short)  ws.getLastRowNum()+1);
+					row1.createCell(0).setCellValue(date);
+					row1.createCell(1).setCellValue(stime);
+					row1.createCell(2).setCellValue(etime);
+					row1.createCell(3).setCellValue(bookby);
+					row1.createCell(4).setCellValue(participents);
+					/*ClassLoader classLoader = ConferenceRoomBooking.class.getClassLoader();
+	                File excel =  new File(classLoader.getResource("D:\\ConferenceRoomBooking.xls").getFile());*/
+					File excel = new File("D:\\ConferenceRoomBooking.xls");
+					FileOutputStream fos = new FileOutputStream(excel);
+					wb.write(fos);
+					//wb.close();
+					fos.close();
+					result=roomname+" Room is Booked Successfully";
+					return result;
+				}
 			}else if(!(i<=rowNum))
 			{
 				stream.close();
