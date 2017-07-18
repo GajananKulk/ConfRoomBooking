@@ -168,6 +168,7 @@ public static String roomBookingProcess(String roomname,String date,String stime
 					FileOutputStream fos = new FileOutputStream(excel);
 					wb.write(fos);
 					//wb.close();
+					fos.flush();
 					fos.close();
 					result=roomname+" Room is Booked Successfully";
 					return result;
