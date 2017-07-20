@@ -4,7 +4,8 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Fulfillment {
 	private String speech;
-
+	private String displayText;
+    private String source;
     private Messages[] messages;
 
     public String getSpeech ()
@@ -27,6 +28,19 @@ public class Fulfillment {
         this.messages = messages;
     }
 
+    public String getDisplayText() {
+		return displayText;
+	}
+	public void setDisplayText(String displayText) {
+		this.displayText = displayText;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	
     @Override
     public String toString()
     {
