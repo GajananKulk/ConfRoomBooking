@@ -54,21 +54,22 @@ public class RequestResponce {
 		String bookby=p.getUsername();
 		RoomBooking rb=new RoomBooking();
 		String str1 =rb.roomBooking(date, stime, etime, bookby, cap);
-		p.setStarttime("");
-		p.setEndtime("");
+		/*p.setStarttime(null);
+		p.setEndtime(null);
 		
 		Fulfillment f=rs.getFulfillment();
 		f.setDisplayText(str1);
 		f.setSpeech(str1);
-		f.setSource("policyWS");
-		/*Response_Mdl res=new Response_Mdl();
+		f.setSource("policyWS");*/
+		
+		Response_Mdl res=new Response_Mdl();
 		res.setSource("policyWS");
 		res.setSpeech(str1);
-		res.setDisplayText(str1);*/
+		res.setDisplayText(str1);
 		
 		
 		ObjectMapper om=new ObjectMapper();
-		String str2=om.writeValueAsString(apiAiResponse);
+		String str2=om.writeValueAsString(res);
 
 		return Response.status(200).entity(str2).header("Content-Type", "application/json").build();
 	}
