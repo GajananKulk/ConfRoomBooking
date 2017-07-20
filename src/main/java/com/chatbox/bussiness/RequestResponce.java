@@ -54,6 +54,8 @@ public class RequestResponce {
 		String bookby=p.getUsername();
 		RoomBooking rb=new RoomBooking();
 		String str1 =rb.roomBooking(date, stime, etime, bookby, cap);
+		p.setStarttime("");
+		p.setEndtime("");
 		Response_Mdl res=new Response_Mdl();
 		res.setSource("policyWS");
 		res.setSpeech(str1);
